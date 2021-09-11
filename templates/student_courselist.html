@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', path='assets/img/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', path='assets/img/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', path='assets/img/favicon-16x16.png')}}">
+        <link rel="manifest" href="{{url_for('static', path='assets/img/site.webmanifest')}}">    <title>Courses</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/css/OverlayScrollbars.min.css'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!-- Bulma Version 0.9.0-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/hero.css">
+    <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+    <style>
+    .columns:nth-child(2)
+    {margin-top: -10rem;}
+    </style>
+  </head>
+  <body>
+    <section class="hero is-info is-small">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <p class="title">
+            Courses
+          </p>
+          
+        </div>
+      </div>
+    </section>
+    <div class="box cta">
+      <p class="has-text-centered">
+         this is a list of all courses
+      </p>
+    </div>
+    
+    {% for item in data %}
+           <section class="container">
+      
+           <div class="columns is-multiline is-mobile">
+        
+          <div class="column ">
+          <div class="card is-shady">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="{{ url_for('static', path='assets/img/03.jpg') }}" alt="Placeholder image">
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="content">
+                <h4>{{ item['classname'] }}</h4>
+                <h5>{{ item['classdescription'] }}</h5>
+                <p>{{ item['class_key'] }}</p>
+                <a href='/student/{{ item["class_key"] }}/dashboard'><span class="button is-link modal-button">Go to class</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div>
+       
+
+    </section>
+     {% endfor %} 
+      
+    <footer>
+      <section class="section">
+        <div class="container">
+          
+          </a>
+        </div>
+      </div>
+    </footer>
+    <!--  ===============
+    HERE BE MODALS
+    ===============  -->
+    <!-- 3dFlipVertical card tiny -->
+    
+    <!-- end tiny modal card -->
+    <!-- Image modal -->
+    
+    <!-- Image modal-->
+    
+    <script src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/js/OverlayScrollbars.min.js'></script>  
+    <script src="../js/wild.js"></script>
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        //The first argument are the elements to which the plugin shall be initialized
+        //The second argument has to be at least a empty object or a object with your desired options
+        OverlayScrollbars(document.querySelectorAll("body"), { });
+        });
+        </script>  
+  </body>
+</html>

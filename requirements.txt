@@ -1,0 +1,7 @@
+fastapi
+jinja2
+aiofiles
+fastapi-login
+python-multipart
+email-validator
+cloudinary

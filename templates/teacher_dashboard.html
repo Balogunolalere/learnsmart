@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="/static/script.js" defer></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', path='assets/img/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', path='assets/img/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', path='assets/img/favicon-16x16.png')}}">
+        <link rel="manifest" href="{{url_for('static', path='assets/img/site.webmanifest')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/twinklecss@1.1.0/twinkle.min.css"/>
+<script src="https://cdn.tiny.cloud/1/n51vxyfukucx3mka3iqd0j9eaafsfniyce4w0stomxc7q7tr/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script>tinymce.init({selector:'textarea'});</script>
+
+        <title>Teacher Dashboard</title>
+
+  </head>
+  <body>
+    <section class="section">
+      <div class="tabs">
+         <ul class="tabs-menu">
+          <li class="is-active" data-target="first-tab"><a>
+create lecture</a></li>
+          <li data-target="second-tab"><a>lecture materials</a></li>
+          <li data-target="third-tab"><a>message board</a></li>
+      </div>
+      <div class="tab-content" id="first-tab">
+        <div class="container justify-center">
+        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" action="/teacher/class_topic" >
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="lecturetitle">
+              Lecture title
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="firstname" name="lecturetitle" type="text">
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="body">
+              Body 
+            </label>
+            <textarea class="textarea" placeholder="Add content" id="body" name="body"></textarea>
+          </div>
+          <div class="flex items-center justify-between">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+               + Post
+            </button>
+          </div>
+          <a href="/">back</a>
+        </form>
+      </div>
+      </div>
+
+      <!-- tab 2 -->
+      <div class="tab-content" id="second-tab">
+
+ <div class="container justify-center">
+       <form method="POST" action="/uploaddata/" enctype="multipart/form-data">
+    <button class="btn btn-outline-secondary" type="submit">upload</button>
+    <input type="file" id="file_upload" name="file">
+</form>
+      </div>
+
+      </div>
+      <!-- tab 3 -->
+        <div class="tab-content" id="third-tab">
+            <div class="container justify-center">
+        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" action="/message" >
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="message">
+              Message 
+            </label>
+            <textarea class="textarea" placeholder="Add message" name="message"></textarea>
+          </div>
+          <div class="flex items-center justify-between">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              Message
+
+            </button>
+          </div>
+          <a href="/">back</a>
+        </form>
+      </div>
+        </div>
+
+    </section> 
+
+<script>
+  tinymce.init({
+  selector: 'textarea#body',
+  height: 500,
+  menubar: false,
+  plugins: [
+    'advlist autolink lists link image charmap print preview anchor',
+    'searchreplace visualblocks code fullscreen',
+    'insertdatetime media table paste code help wordcount'
+  ],
+  toolbar: 'undo redo | formatselect | ' +
+  'bold italic backcolor | alignleft aligncenter ' +
+  'alignright alignjustify | bullist numlist outdent indent | ' +
+  'removeformat | help',
+  content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+});
+</script>
+  </body>
+</html>
+
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Lecture</title>
+    <link rel="stylesheet" href="https://unpkg.com/twinklecss@1.1.0/twinkle.min.css"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', path='assets/img/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', path='assets/img/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', path='assets/img/favicon-16x16.png')}}">
+        <link rel="manifest" href="{{url_for('static', path='assets/img/site.webmanifest')}}">   
+</head>
+<body>
+    <div class="flex p-4 m-6 justify-center">
+        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" action="/teacher/createClass" >
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+              Email
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" name="email" type="email">
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="classname">
+              Class Name
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="classname" name="classname" type="text">
+          </div>
+           <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="classdescription">
+              Class Description
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="classdescription" name="classdescription" type="text">
+          </div>
+          
+          <div class="flex items-center justify-between">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              + Create classroom
+            </button>
+          </div>
+          <a href="/"><button class="button is-text">Home</button>
+</a>
+<p>Dont want to create course? <a href="/teacher/{_}/courses">Courses</a>
+</p>
+        </form>
+      </div>
+</body>
+</html>

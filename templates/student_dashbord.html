@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="/static/script.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', path='assets/img/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', path='assets/img/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', path='assets/img/favicon-16x16.png')}}">
+        <link rel="manifest" href="{{url_for('static', path='assets/img/site.webmanifest')}}">
+        <link rel="stylesheet" href="https://unpkg.com/twinklecss@1.1.0/twinkle.min.css"/>
+        <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+        <title>Student Dashboard</title>
+
+  </head>
+  <body>
+    <section class="section">
+      <div class="tabs">
+         <ul class="tabs-menu">
+          <li class="is-active" data-target="first-tab"><a>lecture</a></li>
+          <li data-target="second-tab"><a>lecture materials</a></li>
+          <li data-target="third-tab"><a>message board</a></li>
+      </div>
+      <div class="tab-content" id="first-tab">
+       <div class="container">
+         <div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      {{ l_data['lecturetitle'] }}
+    </p>
+    <a href="#" class="card-header-icon" aria-label="more options">
+      <span class="icon">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </a>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      {{ l_data['lecturetitle'] }}
+    </div>
+  </div>
+       </div>
+      </div>
+
+      <!-- tab 2 -->
+      <div class="tab-content" id="second-tab">
+
+ <div class="container justify-center">
+         <div class="tab-content" id="third-tab">
+            <div class="container justify-center">
+              <div class="card">
+
+              <div class="card-content">
+                <div class="content">
+                  {{ m_data['message'] }}
+                  <br>
+                </div>
+              </div>
+        
+      </div>
+        </div>
+ 
+      </div>
+      <!-- tab 3 -->
+        <div class="tab-content" id="third-tab">
+            <div class="container justify-center">
+              <div class="card">
+
+              <div class="card-content">
+                <div class="content">
+                  {{ m_data['message'] }}
+                  <br>
+                </div>
+              </div>
+        
+      </div>
+        </div>
+
+    </section> 
+
+
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script>
+  var quill = new Quill('#editor', {
+    theme: 'snow'
+  });
+</script>
+  </body>
+</html>
+
+

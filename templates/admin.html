@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="/static/script.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', path='assets/img/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', path='assets/img/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', path='assets/img/favicon-16x16.png')}}">
+        <link rel="manifest" href="{{url_for('static', path='assets/img/site.webmanifest')}}">
+        <title>Admin Dashboard</title>
+
+  </head>
+  <body>
+    <section class="section">
+      <div class="tabs">
+         <ul class="tabs-menu">
+          <li class="is-active" data-target="first-tab"><a>Teachers</a></li>
+          <li data-target="second-tab"><a>Students</a></li>
+          <li data-target="third-tab"><a>courses</a></li>
+      </div>
+      <div class="tab-content" id="first-tab">
+        <div class='container'>
+        <div>
+            <h1 class='title 
+                has-text-centered'>Teachers Operations</h1>
+        </div>
+          <br>
+          <div class="columns is-mobile is-centered">
+            <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" action="/teach/delete" >
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="teach">
+              paste key to delete
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="teach" name="teach" type="text">
+          </div>
+          <div class="flex items-center justify-between">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+               + delete
+            </button>
+          </div>
+        </form>
+          </div>
+
+        <div class='columns is-mobile is-centered'>
+            <div class='column is-5'>
+                <div class='list'>
+                    <ul>
+                        {% for teacher in teachers %}
+                          <div class='list-item'>
+                            {% for i, v in teacher.items() %}
+                              <li>{{i}}: &nbsp;&nbsp;{{v}}</li>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+      </div>
+
+      <!-- tab 2 -->
+      <div class="tab-content" id="second-tab">
+
+      <div class='container'>
+        <div>
+            <h1 class='title 
+                has-text-centered'>Student Operations</h1>
+        </div>
+          <br>
+          <div class="columns is-mobile is-centered">
+            <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" action="/student/delete" >
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="student">
+              paste key to delete
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="student" name="student" type="text">
+          </div>
+          <div class="flex items-center justify-between">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+               + delete
+            </button>
+          </div>
+        </form>
+          </div>
+
+        <div class='columns is-mobile is-centered'>
+            <div class='column is-5'>
+                <div class='list'>
+                    <ul>
+                        {% for student in students%}
+                          <div class='list-item'>
+                            {% for i, v in student.items() %}
+                              <li>{{i}}: &nbsp;&nbsp;{{v}}</li>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>         
+             
+ 
+      </div>
+      <!-- tab 3 -->
+        <div class="tab-content" id="third-tab">
+            <div class='container'>
+        <div>
+            <h1 class='title 
+                has-text-centered'>Course Operations</h1>
+        </div>
+          <br>
+          <div class="columns is-mobile is-centered">
+            <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" action="/course/delete" >
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="course">
+              paste key to delete
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="course" name="course" type="text">
+          </div>
+          <div class="flex items-center justify-between">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+               + delete
+            </button>
+          </div>
+        </form>
+          </div>
+
+        <div class='columns is-mobile is-centered'>
+            <div class='column is-5'>
+                <div class='list'>
+                    <ul>
+                        {% for course in courses %}
+                          <div class='list-item'>
+                            {% for i, v in course.items() %}
+                              <li>{{i}}: &nbsp;&nbsp;{{v}}</li>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+
+    </section> 
+
+  </body>
+</html>
+
+
