@@ -1,1 +1,0 @@
-{"id":"2ebe8180-24fa-438d-a976-c09d36b892b3","space":7746,"runtime":"python3.7","name":"learnsmart","path":"pevnp1","project":"a0w8cydc","account":"144798365827","region":"eu-central-1","deps":["fastapi","jinja2","aiofiles","fastapi-login","python-multipart","email-validator","cloudinary"],"envs":null,"public":false,"log_level":"","cron":""}
